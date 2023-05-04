@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.ProfileActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/purple_500">
+
+        <ImageView
+            android:id="@+id/winner_cub_imageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/app_icon" />
+
+
+        <TextView
+            android:id="@+id/tv_contact_me"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-light"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"
+            android:text="muhsantech048@gmail.com"
+          />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Log Out"
+        android:background="@drawable/btn_primary"
+        android:textColor="@color/colorPrimaryButton"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+</LinearLayout>

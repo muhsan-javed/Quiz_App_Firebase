@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:title="Profile"
+        android:id="@+id/btnProfileDrawerMenu"/>
+
+
+    <item android:title="Follow Us"
+        android:id="@+id/btnFollowUsDrawerMenu"/>
+    <item android:title="Rate Us"
+        android:id="@+id/btnRateUsDrawerMenu"/>
+</menu>
