@@ -42,10 +42,10 @@ class QuestionActivity : AppCompatActivity() {
             buildView()
         }
         binding.btnSubmit.setOnClickListener {
-           Log.d("FINALQUIZ",questions.toString())
+            Log.d("FINALQUIZ", questions.toString())
 
             val intent = Intent(this, ResultActivity::class.java)
-            val json :String = Gson().toJson(quizzes!![0])
+            val json  = Gson().toJson(quizzes!![0])
             intent.putExtra("QUIZ", json)
             startActivity(intent)
 
@@ -53,10 +53,24 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     private fun setUpFireStore() {
-        val firestore:FirebaseFirestore = FirebaseFirestore.getInstance()
-        var date :String? = intent.getStringExtra("DATE")
+        val firestore = FirebaseFirestore.getInstance()
+        var date = intent.getStringExtra("DATE")
+        if (date != null) {
+            firestore.collection("quizzes").whereEqualTo("title", date)
+                .get()
+                .addOnSuccessListener {
+                    if(it != null && !it.isEmpty){
+                        quizzes = it.toObjects(Quiz::class.java)
+                        questions = quizzes!![0].questions
+                        buildView()
+                    }
+                }
+        }
+
+       /* val firestore:FirebaseFirestore = FirebaseFirestore.getInstance()
+        var date :String? = intent.getStringExtra("Date")
         if (date != null){
-            firestore.collection("quizzes").whereEqualTo("title","05-03-2023")
+            firestore.collection("quizzes").whereEqualTo("title",date)
                 .get()
                 .addOnSuccessListener {
                     //it.toObjects(Quiz::class.java)
@@ -69,7 +83,7 @@ class QuestionActivity : AppCompatActivity() {
                     }
                 }
 
-        }
+        }*/
 
 
     }

@@ -40,11 +40,9 @@ class OptionAdapter(val context: Context, val question: Question):
             holder.itemView.setBackgroundResource(R.drawable.option_item_bg)
         }
 
-
     }
 
     inner class OptionViewHolder(itemView:View): RecyclerView.ViewHolder(itemView){
         var optionView = itemView.findViewById<TextView>(R.id.quiz_option)
-
     }
 }

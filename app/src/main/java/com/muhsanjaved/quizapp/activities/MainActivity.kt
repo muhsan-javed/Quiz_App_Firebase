@@ -1,5 +1,6 @@
 package com.muhsanjaved.quizapp.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatActivity
@@ -52,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         btnDatePicker()
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun btnDatePicker() {
         binding.btnDatePicker.setOnClickListener {
             val datePicker:MaterialDatePicker<Long> = MaterialDatePicker.Builder.datePicker().build()
@@ -63,7 +65,7 @@ class MainActivity : AppCompatActivity() {
                 val date:String = dateFormatter.format(Date(it))
 
                 val intent = Intent(this, QuestionActivity::class.java)
-                intent.putExtra("DATE", date)
+                intent.putExtra("Date", date)
                 startActivity(intent)
             }
             datePicker.addOnNegativeButtonClickListener {
@@ -92,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun populateDummyData() {
+  /*  private fun populateDummyData() {
         quizList.add(Quiz("05-09-23","05-09-23"))
         quizList.add(Quiz("06-09-23","06-09-23"))
         quizList.add(Quiz("07-09-23","07-09-23"))
@@ -117,7 +119,7 @@ class MainActivity : AppCompatActivity() {
         quizList.add(Quiz("14-09-23","14-09-23"))
         quizList.add(Quiz("15-09-23","15-09-23"))
         quizList.add(Quiz("16-09-23","16-09-23"))
-    }
+    }*/
 
     private fun setUpRecyclerView() {
         adapter  = QuizAdapter(this,quizList)
